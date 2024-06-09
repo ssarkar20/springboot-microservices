@@ -1,0 +1,85 @@
+#Sequence: 
+    service-registry
+    config-server
+    api-gateway
+    department-service
+    employee-service
+
+
+#OpenAPI Documentation:
+department-service: http://localhost:8080/swagger-ui/index.html
+employee-service: http://localhost:8081/swagger-ui/index.html
+
+#eureka server(service-registry): http://localhost:8761/
+
+#api-gateway:
+    Endpoint-1: Get Employee by ID: http://localhost:9191/api/employees/1
+    Endpoint-2: Create employee: http://localhost:9191/api/employees
+    Endpoint-3: Get Department by Department-Code: http://localhost:9191/api/departments/DEPT01
+    Endpoint-4: Create Department: http://localhost:9191/api/departments
+
+#config-server: http://localhost:8888
+config-server-repo: https://github.com/ssarkar20/config-server
+
+#department-service:
+    Endpoint-1: Get Department by Department-Code: http://localhost:8080/api/departments/DEPT02
+    Response
+    {
+        "id": 1,
+        "departmentName": "Consulting",
+        "departmentDescription": "Consulting Business",
+        "departmentCode": "DEPT01"
+    }
+
+    Endpoint-2: Create Department: http://localhost:8080/api/departments
+    Request:
+    {
+        "departmentName": "AI",
+        "departmentDescription": "Artificial Intelligence",
+        "departmentCode": "DEPT04"
+    }
+    Response:
+    {
+        "id": 4,
+        "departmentName": "AI",
+        "departmentDescription": "Artificial Intelligence",
+        "departmentCode": "DEPT04"
+    }
+
+#employee-service:
+    Endpoint-1: Get Employee by ID: http://localhost:8081/api/employees/1
+    Response:
+    {
+        "employeeDto": {
+            "id": 1,
+            "firstName": "Sourav",
+            "lastName": "Sarkar",
+            "email": "sourav@test.com",
+            "departmentCode": null
+        },
+        "departmentDto": {
+            "id": null,
+            "departmentName": "CB Default",
+            "departmentDescription": "CB Default",
+            "departmentCode": "CB Default"
+        }
+    }
+
+    Endpoint-2: Create employee: http://localhost:8081/api/employees
+    Request
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "JohnD@test.com",
+        "departmentCode": "DEPT02"
+    }
+    Response
+    {
+        "id": 9,
+        "firstName": "John",
+        "lastName": "Doe",
+        "email": "JohnD@test.com",
+        "departmentCode": "DEPT02"
+    }
+
+
